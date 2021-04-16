@@ -1,0 +1,40 @@
+
+
+.sec {
+  width: 50%;
+  height: 100vh;
+  margin-top: 60pt; 
+}
+
+
+.title {
+  font-size: 80px;
+  color: green;
+}
+
+p{
+    color: #000;
+    font-size: 30px;
+}
+
+.button {
+    color: greenyellow;
+    border-width: 3px;
+    font-weight: 800;
+    background-color: gray;
+    margin-left: 40%;
+    margin-block-start: 50pt;
+    font-size: 20pt;
+    width: 100pt;
+    margin-top: 20pt;
+    border-top-left-radius: 20pt;
+    border-bottom-left-radius: 20pt;
+    border-bottom-right-radius: 20pt;
+    border-top-right-radius: 20pt;
+    background-image: url("https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+}
+
+body {
+    background-image: url("https://images.pexels.com/photos/262896/pexels-photo-262896.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-position: top;
+}

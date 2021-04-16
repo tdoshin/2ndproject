@@ -1,0 +1,12 @@
+.title {
+    font-size: 80px;
+    color: green;
+  }
+.box {
+    font-size: 30px;
+    color: green;
+}  
+
+body{
+    background-image: url("https://images.pexels.com/photos/262896/pexels-photo-262896.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+}

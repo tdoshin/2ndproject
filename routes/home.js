@@ -27,6 +27,9 @@ const isAuthorized = (req, res, next) => {
       res.redirect("/auth/login");
     }
   };
+const FoodRouter = require("./food")
+router.use("/food", FoodRouter)
+
 router.use(addUserToRequest);
 ///////////////////////////////
 // Router Routes
@@ -57,7 +60,7 @@ router.post("/auth/signup", async(req,res)=>{
 })
 
 //Login route
-router.get("/login", (req,res) => {
+router.get("/auth/login", (req,res) => {
     res.render("auth/login")
 })
 
@@ -93,6 +96,12 @@ router.get("/auth/logout", (req, res) => {
     req.sessions.userId = null;
     res.redirect("/");
   });
+
+//User Page
+
+router.get("/user", (req,res)=>{
+    res.render("user")
+})
 ///////////////////////////////
 // Export Router
 ////////////////////////////////

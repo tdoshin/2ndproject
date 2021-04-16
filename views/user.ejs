@@ -1,1 +1,30 @@
-<h1>User Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "wrapper">
+        <%- include("partials/header") %>
+    <main>
+       
+        <h1>User Dashboard</h1>
+        <form action="/user/" method="post">
+            <input class="input"
+            type="text"
+            name="name"
+            placeholder="your dishname"/>
+            <input type="text" name= "imageUrl" placeholder="add image url"/>
+            <input type="text" name="videoUrl" placeholder="add video url"/>
+            <input type="submit" value="add dish">
+        </form>
+        
+        <a href="/"><button class="button">Logout</button></a>
+    </main>
+    <%- include("partials/footer") %>
+    </div>
+</body>
+</html>
+

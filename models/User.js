@@ -6,6 +6,7 @@ const {Schema, model} = require("../db/connection");
 //Dish Schema
 
 const DishSchema = new Schema({
+    name:  String,
     imageUrl: String,
     videoUrl: String,
     likes: {type:Number,default:0}
@@ -15,7 +16,7 @@ const DishSchema = new Schema({
 const UserSchema = new Schema({
     username: String,
     password: String,
-    // dish: [Dish],
+    dish: [DishSchema],
 }, {timestamps:true})
 
 //User model 
