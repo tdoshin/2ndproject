@@ -11,7 +11,7 @@
     <main>
        
         <h1>User Dashboard</h1>
-        <form action="/user/" method="post">
+        <form action="/user" method="post">
             <input class="input"
             type="text"
             name="name"
@@ -20,7 +20,9 @@
             <input type="text" name="videoUrl" placeholder="add video url"/>
             <input type="submit" value="add dish">
         </form>
-        
+    <% for (food of foods) { %>
+        <img src ="<%=food.imageUrl%>">
+    <% } %>   
         <a href="/"><button class="button">Logout</button></a>
     </main>
     <%- include("partials/footer") %>

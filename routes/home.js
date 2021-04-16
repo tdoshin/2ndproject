@@ -27,8 +27,7 @@ const isAuthorized = (req, res, next) => {
       res.redirect("/auth/login");
     }
   };
-const FoodRouter = require("./food")
-router.use("/food", FoodRouter)
+
 
 router.use(addUserToRequest);
 ///////////////////////////////
@@ -93,14 +92,25 @@ router.post("/auth/login", async (req, res) => {
 //Logout route
 router.get("/auth/logout", (req, res) => {
     //remove the userId property from the session
-    req.sessions.userId = null;
+    req.session.userId = null;
     res.redirect("/");
   });
 
 //User Page
 
-router.get("/user", (req,res)=>{
-    res.render("user")
+router.get("/user", async(req,res)=>{
+    const user =await User.findById(req.session.userId)
+    res.render("user", {
+        foods: user.dish
+    })
+})
+
+router.post("/user", async (req, res) => {
+   const user =await User.findById(req.session.userId)
+   console.log(user)
+   const foods = user.dish.push(req.body)
+   user.save()
+   res.redirect("/user")
 })
 ///////////////////////////////
 // Export Router
