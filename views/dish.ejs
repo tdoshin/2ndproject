@@ -11,16 +11,19 @@
     <main>
        
         <h1>User Dashboard</h1>
-        <form action="/user" method="post">
+        <a href="/user">Back to Dashboard</a>
+        
+         
+        <form action="/dish/<%=food._id%>?_method=PUT" method= "post">
             <input class="input"
             type="text"
             name="name"
             placeholder="your dishname"/>
             <input type="text" name= "imageUrl" placeholder="add image url"/>
             <input type="text" name="videoUrl" placeholder="add video url"/>
-            <input type="submit" value="add dish">
+            <input type="submit" value="update dish">
         </form>
-    <% for (food of foods) { %>
+
         <h1>
            <a href="/dish/<%=food._id%>"><%=food.name%></a> 
         </h1>
@@ -29,11 +32,14 @@
         src="<%=food.videoUrl%>">
         <!-- need to figure out how to put /embed automatically -->
         </iframe>
-    <% } %>  
+
+        <form action="/dish/<%= food._id %>?_method=DELETE" method="post">
+            <input type="submit" value="delete dish">  
+        </form>
+    
         <a href="/"><button class="button">Logout</button></a>
     </main>
     <%- include("partials/footer") %>
     </div>
 </body>
 </html>
-
