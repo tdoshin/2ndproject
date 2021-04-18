@@ -88,14 +88,14 @@ router.post("/auth/login", async (req, res) => {
   }
 });
 
-//Logout route
+////////////////LOGOUT ROUT
 router.get("/auth/logout", (req, res) => {
   //remove the userId property from the session
   req.session.userId = null;
   res.redirect("/");
 });
 
-//User Page
+//////////////////USER PAGE THAT FIRST GETS THE USER BY ITS ID AND RENDERS A USER PAGE WITH ITS DISHES
 
 router.get("/user", async (req, res) => {
   const user = await User.findById(req.session.userId);
@@ -105,6 +105,8 @@ router.get("/user", async (req, res) => {
   });
 });
 
+////////////////////ADDS A NEW DISH TO THE USER PAGE
+
 router.post("/user", async (req, res) => {
   const user = await User.findById(req.session.userId);
   // console.log(user);
@@ -113,39 +115,20 @@ router.post("/user", async (req, res) => {
   res.redirect("/user");
 });
 
+////////////////////////////////UPDATE ROUTER
 router.put("/dish/:dishId", async (req, res) => {
-  console.log(req.body);
-
   // find the user
-  const user = await User.findById(req.session.userId);
-
-  // find the dish
-  let dishItem = null;
-  for (dish of user.dish) {
-    if (dish._id == req.params.dishId) {
-      dishItem = dish;
-    }
-  }
-
-  // can take out conditional
-  if (req.body.name != "") {
-    dishItem.name = req.body.name;
-  }
-
-  if (req.body.imageUrl != "") {
-    dishItem.imageUrl = req.body.imageUrl;
-  }
-
-  if (req.body.videoUrl != "") {
-    dishItem.videoUrl = req.body.videoUrl;
-  }
-
-  user.save();
-
-  res.redirect("/dish/" + req.params.dishId);
+  console.log(req.params.dishId)
+  await User.findOneAndUpdate({_id:req.session.userId, 'dish._id': req.params.dishId}, {
+    "$set":{"dish.$":req.body}
+  });
+  res.redirect("/user")
 });
 
-//delete route
+
+
+
+//////////////////////////////DELETE ROUTER
 
 router.delete("/dish/:dishId", async (req, res) => {
   const id = req.session.userId;
@@ -164,7 +147,7 @@ router.delete("/dish/:dishId", async (req, res) => {
 
 
 
-//show route
+///////////////SHOW ROUTER WHEN USER SELECTS ON A DISH
 
 router.get("/dish/:dishId", async (req, res) => {
   const user = await User.findById(req.session.userId);

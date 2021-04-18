@@ -11,10 +11,9 @@
         <!-- logo/brand -->
         <div class="navbar-brand">
             <a class= "navbar-item">
-                <img src="/assets/logo.png" style="max-height: 70px" class="py-2 px-2">
+                <img src="/logo.png" style="max-height: 70px" class="py-2 px-2">
             </a>
         </div>
-        <div class="navbar-menu" id="nav-links"></div>
         <div class="navbar-end">
             <a href="/about" class="navbar-item">About</a>
             <a href="/home" class="navbar-item">Home</a>
@@ -22,29 +21,40 @@
             <a href="/contact" class="navbar-item">Contact Me</a>
         </div>
     </nav>
-    <div class = "wrapper">
-        <%- include("partials/header") %>
+        
     <main>
        
-        <h1>User Dashboard</h1>
+        <h2 class ="is-size-1 has-text-weight-bold has-text-centered has-text-primary-dark has-background-light py-6 my-2">Your Dashboard</h2>
+        <p class="is-size-3 has-text-weight-bold">Add Your Dishes Here</p>
         <form action="/user" method="post">
-            <input class="input"
-            type="text"
-            name="name"
-            placeholder="your dishname"/>
+            <input class="input" type="text" name="name" placeholder="your dishname">
+            <input class = "input" type="text" name="description" placeholder= "describe your dish">
             <input type="text" name= "imageUrl" placeholder="add image url"/>
-            <input type="text" name="videoUrl" placeholder="add video url"/>
             <input type="submit" value="add dish">
         </form>
     <% for (food of foods) { %>
-        <h1>
-           <a href="/dish/<%=food._id%>"><%=food.name%></a> 
-        </h1>
-        <img src ="<%=food.imageUrl%>">
-        <iframe width="420" height ="315"
-        src="<%=food.videoUrl%>">
-        <!-- need to figure out how to put /embed automatically -->
-        </iframe>
+        <section class="section">
+            <div class= "container">
+                <div class= "columns is-vcentered">
+                    <div class="column is-size-4"><a href="/dish/<%=food._id%>"><%=food.name%></a> </div>
+                    <div class="column is-5 has-text-centered">
+                        <img src="<%=food.imageUrl%>" alt="" class="px-6">
+                    </div>
+                    
+                    <div class="column is-size-4 subtitle"><p><%=food.description%></p></div>
+                    </div>
+
+                </div>
+            </div>        
+            
+                
+          
+            
+
+            <!-- need to figure out how to put /embed automatically -->
+            </iframe>
+        </section>
+
     <% } %>  
     </main>
     <%- include("partials/footer") %>

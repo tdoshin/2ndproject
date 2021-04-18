@@ -9,6 +9,7 @@ const DishSchema = new Schema({
     name:  String,
     imageUrl: String,
     videoUrl: String,
+    description: String,
     likes: {type:Number,default:0}
 })
 
