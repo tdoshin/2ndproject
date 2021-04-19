@@ -65,3 +65,9 @@ None but currently trying to create a home page that will be able to access all 
 
 ## Next Steps 
 Create more functionalities for users to be able to comment on each others' dishes 
+
+
+## References
+
+Boilerplate- Alex Merced
+Code along - @alexmercedcoder
