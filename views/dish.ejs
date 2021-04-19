@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dish show Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>
-    <div class = "wrapper">
-        <%- include("partials/header") %>
+    <nav class= "navbar has-shadow is-white">
+        <div class="navbar-brand">
+            <a class= "navbar-item">
+                <img src="/logo.png" style="max-height: 70px" class="py-2 px-2">
+            </a>
+        </div>
+        <div class="navbar-end">
+            <a href="/about" class="navbar-item">About</a>
+            <a href="/home" class="navbar-item">Home</a>
+            <a href="/" class="navbar-item">Logout</a>
+            <a href="/contact" class="navbar-item">Contact Me</a>
+        </div>
+    </nav>
     <main>
        
-        <h1>User Dashboard</h1>
+        <h1 class="is-size-1 has-text-weight-bold has-text-centered has-text-primary-dark has-background-light py-6 my-2">Update Dashboard</h1>
         <a href="/user">Back to Dashboard</a>
         
-         
+         <div class= "has-text-centered">
         <form action="/dish/<%=food._id%>?_method=PUT" method= "post">
-            <input class="input" type="text" name="name" value="<%=food.name%>">
-            <input type="text" name= "imageUrl"  value="<%=food.imageUrl%>">
-            <input type="text" name="videoUrl"  value="<%=food.videoUrl%>">
-            <input class = "input" type="text" name="description" value="<%=food.description%>">
+           ENTER IMAGE URL HERE <input type="text" name= "imageUrl"  value="<%=food.imageUrl%>"><br>
+           ENTER VIDEO URL HERE <input type="text" name="videoUrl"  value="<%=food.videoUrl%>"><br>
+           ENTER FOOD NAME HERE<input type="text" name="name" value="<%=food.name%>"><br>
+           DESCRIBE YOUR DISH HERE<input type="text" name="description" value="<%=food.description%>"><br>
             <input type="submit" value="update dish">
         </form>
+        </div>
+        <section class= "section">
+        <div class= "container">
+            <div class= "column is-vcentered">
+                <div class= "column is-size-4"><a href="/dish/<%=food._id%>"><%=food.name%></a> </div>
+                <div class= "column is-5 has-text-centered"><img src ="<%=food.imageUrl%>"></div>
+                <div class= "column is-size-4 subtitle">       <iframe width="500" height ="200"
+                    src="<%=food.videoUrl%>">
+                    <!-- need to figure out how to put /embed automatically -->
+                    </iframe>
+                </div>
 
-        <h1>
-           <a href="/dish/<%=food._id%>"><%=food.name%></a> 
-        </h1>
-        <img src ="<%=food.imageUrl%>">
-        <p>
-            <%food.description%>
-        </p>
-        <iframe width="500" height ="200"
-        src="<%=food.videoUrl%>">
-        <!-- need to figure out how to put /embed automatically -->
-        </iframe>
-
+            </div>
+        </div>
+        
         <form action="/dish/<%= food._id %>?_method=DELETE" method="post">
             <input type="submit" value="delete dish">  
         </form>

@@ -16,7 +16,7 @@
         </div>
         <div class="navbar-end">
             <a href="/about" class="navbar-item">About</a>
-            <a href="/home" class="navbar-item">Home</a>
+            <a href="/news" class="navbar-item">Home</a>
             <a href="/" class="navbar-item">Logout</a>
             <a href="/contact" class="navbar-item">Contact Me</a>
         </div>
@@ -26,9 +26,9 @@
        
         <h2 class ="is-size-1 has-text-weight-bold has-text-centered has-text-primary-dark has-background-light py-6 my-2">Your Dashboard</h2>
         <p class="is-size-3 has-text-weight-bold">Add Your Dishes Here</p>
-        <form action="/user" method="post">
+        <form  action="/user" method="post">
             <input class="input" type="text" name="name" placeholder="your dishname">
-            <input class = "input" type="text" name="description" placeholder= "describe your dish">
+            <input width="300" class = "input" type="text" name="description" placeholder= "describe your dish">
             <input type="text" name= "imageUrl" placeholder="add image url"/>
             <input type="submit" value="add dish">
         </form>
@@ -39,9 +39,13 @@
                     <div class="column is-size-4"><a href="/dish/<%=food._id%>"><%=food.name%></a> </div>
                     <div class="column is-5 has-text-centered">
                         <img src="<%=food.imageUrl%>" alt="" class="px-6">
+                    <div class= "column is-size-4 subtitle">       <iframe width="500" height ="200"
+                            src="<%=food.videoUrl%>">
+                        </iframe>
                     </div>
+                </div>
                     
-                    <div class="column is-size-4 subtitle"><p><%=food.description%></p></div>
+                <div class="column is-size-4 subtitle"><p><%=food.description%></p></div>
                     </div>
 
                 </div>

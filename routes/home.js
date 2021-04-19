@@ -144,7 +144,9 @@ router.delete("/dish/:dishId", async (req, res) => {
  res.redirect("/user")
 });
 
-
+router.get("/news", (req,res) => {
+  res.send("newsfeed")
+})
 
 
 ///////////////SHOW ROUTER WHEN USER SELECTS ON A DISH
