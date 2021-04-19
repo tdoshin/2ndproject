@@ -12,6 +12,8 @@
 
 ## Getting Started 
 
+![image](https://user-images.githubusercontent.com/72947001/115302375-fcae2600-a127-11eb-872f-29d558278922.png)
+
 
 ## Models
 
