@@ -1,14 +1,14 @@
 # FoodShare
 
 - **Author:** Timi Oshin
-- **Link to Live Site:** fdfadadfadfsdfadfadf
+- **Link to Live Site:** https://foodshareapp.herokuapp.com/
 
 
 ## An application that allows for a safe space for everyday users to share their favorite dishes and build a global communities through tasty meals 
 
 
 ## Technology Used
-### JavaScript, HTML, CSS, Nodejs, Express, Bulma (for styling)
+### JavaScript, EJS, CSS, Nodejs, Express, Bulma (for styling)
 
 ## Getting Started 
 
