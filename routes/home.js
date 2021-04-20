@@ -110,7 +110,13 @@ router.get("/user", async (req, res) => {
 router.post("/user", async (req, res) => {
   const user = await User.findById(req.session.userId);
   // console.log(user);
-  const foods = user.dish.push(req.body);
+  dish = {
+    imageUrl: req.body.imageUrl,
+    videoUrl: req.body.videoUrl.replace("watch?v=", "embed/"),
+    name: req.body.name,
+    description: req.body.description
+  }
+  const foods = user.dish.push(dish);
   user.save();
   res.redirect("/user");
 });
